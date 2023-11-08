@@ -30,8 +30,17 @@ export class EmpleadosService {
     };
     this.empleados.push(empleado);
   }
-  getEmpleado() {
+  getEmpleados() {
     return this.empleados;
+  }
+
+  getEmpleado(id: number) {
+    for (let empleado of this.empleados) {
+      if (empleado.id == id) {
+        return empleado;
+      }
+    }
+    return 'Empleado no encontrado.';
   }
 
   addEmpleado(empleadomodel: EmpleadoModel) {
@@ -57,7 +66,7 @@ export class EmpleadosService {
   }
 
   deleteEmpleado(id) {
-    if(((id)>0)&&((id)<this.empleados.length)) {
+    if (id > 0 && id < this.empleados.length) {
       this.empleados.splice(id - 1, 1);
       return this.empleados;
     } else {

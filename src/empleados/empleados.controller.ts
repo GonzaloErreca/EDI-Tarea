@@ -2,14 +2,19 @@ import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
 import { EmpleadosService } from './empleados.service';
 import { EmpleadoModel } from './empleadoModel';
 
-@Controller('empleados')
+@Controller("empleados")
 export class EmpleadosController {
     constructor(private readonly service: EmpleadosService) {}
 
 @Get()
-getEmpleado(){
-    return this.service.getEmpleado();
+getEmpleados(){
+    return this.service.getEmpleados();
 }
+@Get(":id")
+getEmpleado(@Param("id") id: number){
+return this.service.getEmpleado(id);
+}
+
 @Post()
 addEmpleado(@Body()empleado:EmpleadoModel){
     return this.service.addEmpleado(empleado)
