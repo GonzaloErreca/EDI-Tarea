@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { EmpleadoModel } from './empleadoModel';
 
 @Injectable()
-export class empleadoservice {
+export class EmpleadosService {
   empleados = [];
 
   constructor() {
