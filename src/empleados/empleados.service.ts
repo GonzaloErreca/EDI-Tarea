@@ -57,8 +57,8 @@ export class EmpleadosService {
   }
 
   deleteEmpleado(id) {
-    if (id > 0 && id < this.empleados.length) {
-      this.empleados.slice(id - 1, 1);
+    if(((id)>0)&&((id)<this.empleados.length)) {
+      this.empleados.splice(id - 1, 1);
       return this.empleados;
     } else {
       return 'El empleado no existe';
