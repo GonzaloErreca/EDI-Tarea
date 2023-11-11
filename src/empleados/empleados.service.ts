@@ -66,11 +66,22 @@ export class EmpleadosService {
   }
 
   deleteEmpleado(id) {
-    if (id > 0 && id < this.empleados.length) {
-      this.empleados.splice(id - 1, 1);
+    let empleadoIndex = this.empleados.findIndex((e) => e.id == id);
+    if (empleadoIndex !== -1) {
+      this.empleados.splice(empleadoIndex, 1);
       return this.empleados;
     } else {
       return 'El empleado no existe';
     }
   }
+  //----------------------------------------------------------------
+  //ESTO NO FUNCIONA SI EL ID ES DISTINTO AL INDICE DEL ARREGLO (EJ i=4 ID=777)
+  // deleteEmpleado(id) {
+  //   if (id > 0 && id < this.empleados.length) {
+  //     this.empleados.splice(id - 1, 1);
+  //     return this.empleados;
+  //   } else {
+  //     return 'El empleado no existe';
+  //   }
+  // }
 }
